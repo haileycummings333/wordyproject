@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">wordy</string>
+    <string name="submit">Submit</string>
+    <string name="addw">Add Word</string>
+    <string name="clear">Clear</string>
+    <string name="restart">Restart</string>
 </resources>

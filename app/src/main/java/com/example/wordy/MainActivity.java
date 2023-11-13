@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initialize all the edittext
         edt1 = findViewById(R.id.et_1);
         edt2 = findViewById(R.id.et_2);
         edt3 = findViewById(R.id.et_3);
@@ -58,10 +59,11 @@ public class MainActivity extends AppCompatActivity {
         edt29 = findViewById(R.id.et_29);
         edt30 = findViewById(R.id.et_30);
 
-        // Load a random word from Firebase as the target word.
+        // Load a random word from Firebase as the target word, SHOULD BE RANDOM
         loadRandomWord();
 
-        // Set up onClickListeners for "Submit," "Restart," and "Clear" buttons.
+
+        //initialize submit buttont
         Button submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +73,54 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //initialize restart button
+        Button restartButton = findViewById(R.id.restartButton);
+        restartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //row 1 blank
+                edt1.setText("");
+                edt2.setText("");
+                edt3.setText("");
+                edt4.setText("");
+                edt5.setText("");
+                //row 2 blank
+                edt6.setText("");
+                edt7.setText("");
+                edt8.setText("");
+                edt9.setText("");
+                edt10.setText("");
+                //row 3 blank
+                edt11.setText("");
+                edt12.setText("");
+                edt13.setText("");
+                edt14.setText("");
+                edt15.setText("");
+                //row 4 blank
+                edt16.setText("");
+                edt17.setText("");
+                edt18.setText("");
+                edt19.setText("");
+                edt20.setText("");
+                //row 5 blank
+                edt21.setText("");
+                edt22.setText("");
+                edt23.setText("");
+                edt24.setText("");
+                edt25.setText("");
+                //row 6 blank
+                edt26.setText("");
+                edt27.setText("");
+                edt28.setText("");
+                edt29.setText("");
+                edt30.setText("");
+            }
+        });
+
+
 
     }
+
 
     private void loadRandomWord() {
         //

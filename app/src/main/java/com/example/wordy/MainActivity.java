@@ -13,8 +13,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText[] guessInputs;
     private String targetWord;
     private int attemptsLeft;
-    EditText edt1, edt2, edt3, edt4, edt5, edt6, edt7, edt8, edt9, edt10, edt11, edt12, edt13, edt14, edt15,
-            edt16, edt17, edt18, edt19, edt20, edt21, edt22, edt23, edt24, edt25, edt26, edt27, edt28, edt29, edt30;
+    EditText edt1, edt2, edt3, edt4, edt5, edt6, edt7, edt8, edt9, edt10,
+            edt11, edt12, edt13, edt14, edt15, edt16, edt17, edt18, edt19,
+            edt20, edt21, edt22, edt23, edt24, edt25, edt26, edt27,
+            edt28, edt29, edt30;
 
 
     @Override
@@ -23,36 +25,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //initialize all the edittext
+        //row 1
         edt1 = findViewById(R.id.et_1);
         edt2 = findViewById(R.id.et_2);
         edt3 = findViewById(R.id.et_3);
         edt4 = findViewById(R.id.et_4);
         edt5 = findViewById(R.id.et_5);
-
+        //row 2
         edt6 = findViewById(R.id.et_6);
         edt7 = findViewById(R.id.et_7);
         edt8 = findViewById(R.id.et_8);
         edt9 = findViewById(R.id.et_9);
         edt10 = findViewById(R.id.et_10);
-
+        //row 3
         edt11 = findViewById(R.id.et_11);
         edt12 = findViewById(R.id.et_12);
         edt13 = findViewById(R.id.et_13);
         edt14 = findViewById(R.id.et_14);
         edt15 = findViewById(R.id.et_15);
-
+        //row 4
         edt16 = findViewById(R.id.et_16);
         edt17 = findViewById(R.id.et_17);
         edt18 = findViewById(R.id.et_18);
         edt19 = findViewById(R.id.et_19);
         edt20 = findViewById(R.id.et_20);
-
+        //row 5
         edt21 = findViewById(R.id.et_21);
         edt22 = findViewById(R.id.et_22);
         edt23 = findViewById(R.id.et_23);
         edt24 = findViewById(R.id.et_24);
         edt25 = findViewById(R.id.et_25);
-
+        //row 6
         edt26 = findViewById(R.id.et_26);
         edt27 = findViewById(R.id.et_27);
         edt28 = findViewById(R.id.et_28);
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         loadRandomWord();
 
 
-        //initialize submit buttont
+        //initialize submit button
         Button submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

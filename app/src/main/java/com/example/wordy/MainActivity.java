@@ -27,12 +27,11 @@ import androidx.annotation.NonNull;
 public class MainActivity extends AppCompatActivity {
 
     EditText[][] editTextArrays = new EditText[6][5]; // 6 rows, 5 columns
-
     private String targetWord;
     String guessingWord;
     //private int attemptsLeft;
-    boolean exists;
-    private List<String> targetWordLetters;
+    //boolean exists;
+    private List<Character> targetWordLetters;
     EditText edt1, edt2, edt3, edt4, edt5, edt6, edt7, edt8, edt9, edt10,
             edt11, edt12, edt13, edt14, edt15, edt16, edt17, edt18, edt19,
             edt20, edt21, edt22, edt23, edt24, edt25, edt26, edt27,
@@ -52,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         //exists = false;
         hardModeStatus = false; //by default hard mode is OFF
         hardMode = findViewById(R.id.hardModeTextView);
-        // Load a random word from Firebase as the target word, SHOULD BE RANDOM
 
-        //initialize all the edittexts
+
+        //initialize all the edittexts and add to array for row
         //row 1
         edt1 = findViewById(R.id.et_1);
         edt2 = findViewById(R.id.et_2);
@@ -238,7 +237,12 @@ public class MainActivity extends AppCompatActivity {
                     // select a random word from the list
                     targetWord = getRandomWord(wordList);
                     // for hard mode, store the letters of the target word in a list
-                    targetWordLetters = Arrays.asList(targetWord.split(""));
+                    //targetWordLetters = Arrays.asList(targetWord.split(""));
+                    char[] charArray = targetWord.toCharArray();
+                    targetWordLetters = new ArrayList<>();
+                    for (char c : charArray) {
+                        targetWordLetters.add(c);
+                    }
                 }
             }
 
@@ -361,13 +365,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-
-
                 } else {
                     //exists = false;
                     clearRow(currentRowIndex);
                     Toast.makeText(getApplicationContext(), "Word Not In Database", Toast.LENGTH_LONG).show();
-
 
                 }
             }
@@ -379,14 +380,76 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private List<Character> guessedLetters = new ArrayList<>();
+
     private void hardModeGuess(EditText[] editArray) {
-        //stores letters already guessed
+        wordsRef.orderByValue().equalTo(guessingWord).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
 
-        //if letter is already correct and in correct spot(green), that letter must be used in the same spot
 
-        //if a letter is correct but in wrong spot (yellow), that letter must be used but in a different spot
+                    // check if all letters are guessed correctly
+                    boolean allCorrect = true;
 
-    }
+                    for (int i = 0; i < editArray.length; i++) {
+                        EditText editText = editArray[i];
+                        char guessedLetter = editText.getText().toString().toLowerCase().charAt(0);
+                        char targetLetter = targetWordLetters.get(i);
+
+                        if (guessedLetter == targetLetter) {
+                            // correct letter in the correct spot (green)
+                            editText.setBackgroundColor(getResources().getColor(R.color.green));
+                            guessedLetters.add(guessedLetter);
+                        } else if (guessedLetters.contains(guessedLetter)) {
+                            // correct letter in the wrong spot (yellow)
+                            editText.setBackgroundColor(getResources().getColor(R.color.yellow));
+                        } else {
+                            // incorrect letter
+                            allCorrect = false;
+                            guessedLetters.remove(guessedLetter); // Remove if it was previously guessed
+                            editText.setBackgroundColor(getResources().getColor(R.color.gray));
+                        }
+                    }
+
+                    if (allCorrect) {
+                        Toast.makeText(getApplicationContext(), "You have guessed the right word!", Toast.LENGTH_LONG).show();
+                        restartGame();
+                    } else {
+                        // Move to the next row
+                        disableRow(currentRowIndex);
+                        currentRowIndex++;
+                        enableRow(currentRowIndex);
+
+                        if (currentRowIndex == 5) {
+                            Toast.makeText(getApplicationContext(), "You lost! The correct word was: " + targetWord, Toast.LENGTH_LONG).show();
+                            restartGame();
+                        }
+                    }
+                }
+            }
+        @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // handle errors, if any
+                }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //check if word guessed is available in the database
 //    private void checkWordAvailability(String word) {

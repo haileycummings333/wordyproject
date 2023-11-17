@@ -73,14 +73,16 @@ public class Words extends AppCompatActivity {
         // check if the word is empty or not exactly 5 characters
         if (newWord.length() != 5) {
             Toast.makeText(this, "Word must be exactly 5 characters long.", Toast.LENGTH_LONG).show();
-            newWordText.setText("");
+            //newWordText.setText("");
+            newWordText.setTextColor(getResources().getColor(R.color.purple));
             return;
         }
 
         // check if the word contains only letters
         if (!newWord.matches("[a-z]+")) {
             Toast.makeText(this, "Word must contain only letters.", Toast.LENGTH_LONG).show();
-            newWordText.setText("");
+            //newWordText.setText("");
+            newWordText.setTextColor(getResources().getColor(R.color.purple));
             return;
         }
 
@@ -91,7 +93,8 @@ public class Words extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     // word already exists in the database, don't add
                     Toast.makeText(Words.this, "Word already exists in the database.", Toast.LENGTH_LONG).show();
-                    newWordText.setText("");
+                    //newWordText.setText("");
+                    newWordText.setTextColor(getResources().getColor(R.color.purple));
                 } else {
                     // word doesn't already exist so add
                     String key = wordsRef.push().getKey();

@@ -1,0 +1,29 @@
+word bank
+    words stored in firebase ✓
+    word is 5 letter string ✓
+
+word activity
+    six rows of input ✓
+    add word button to switch activity ✓
+    retrieve random word ✓
+    words are only taken from firebase ✓
+    submit button checks the guess ✓
+    restart button, restarts game with new random word from firebase ✓
+    clear button clears out guess to redo game
+    notify user of win or loss ✓
+
+create word activity
+    cancel button switches back to main activity ✓
+    word will be added, iff: ✓
+        not empty ✓
+        5 characters ✓
+        only letters ✓
+        word doesn't already exist (case insensitive) ✓
+    toasts shows word was stored ✓
+        or toast showing error ✓
+            and change label to purple ✓
+
+extra credit
+    hard mode (added button and text to show status, need to implement hard mode guessing)
+    clear database button  ✓
+    extra feature (checks if guessed word exists in the word bank) ✓

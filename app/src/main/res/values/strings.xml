@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">wordy</string>
+    <string name="app_name">Wordy</string>
     <string name="submit">Submit</string>
     <string name="addw">Add Word</string>
     <string name="clear">Clear</string>
     <string name="restart">Restart</string>
+    <string name="on">Hard Mode: On</string>
+    <string name="off">Hard Mode: Off</string>
+    <string name="hm">Hard Mode</string>
+    <string name="add_word">Add Word</string>
+    <string name="clear_database">Clear Database</string>
+    <string name="go_back">Go Back</string>
 </resources>

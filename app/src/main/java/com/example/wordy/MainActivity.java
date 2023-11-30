@@ -296,23 +296,23 @@ public class MainActivity extends AppCompatActivity {
                     //exists = true;
                     // compares if letter a letter in word but in wrong spot, changes to yellow
                     if (editText1 == l2 || editText1 == l3 || editText1 == l4 || editText1 == l5) {
-                        et1.setBackgroundColor(getResources().getColor(R.color.yellow)); // sets color to yellow if so
+                        et1.setBackgroundColor(getResources().getColor(R.color.yellow));
                     }
                     // compares if later entered in edt is equal to any of the other letters
                     if (editText2 == l1 || editText2 == l3 || editText2 == l4 || editText2 == l5) {
-                        et2.setBackgroundColor(getResources().getColor(R.color.yellow)); // sets color to yellow if so
+                        et2.setBackgroundColor(getResources().getColor(R.color.yellow));
                     }
                     // compares if later entered in edt is equal to any of the other letters
                     if (editText3 == l1 || editText3 == l2 || editText3 == l4 || editText3 == l5) {
-                        et3.setBackgroundColor(getResources().getColor(R.color.yellow)); // sets color to yellow if so
+                        et3.setBackgroundColor(getResources().getColor(R.color.yellow));
                     }
                     // compares if later entered in edt is equal to any of the other letters
                     if (editText4 == l1 || editText4 == l2 || editText4 == l3 || editText4 == l5) {
-                        et4.setBackgroundColor(getResources().getColor(R.color.yellow)); // sets color to yellow if so
+                        et4.setBackgroundColor(getResources().getColor(R.color.yellow));
                     }
                     // compares if later entered in edt is equal to any of the other letters
                     if (editText5 == l1 || editText5 == l2 || editText5 == l3 || editText5 == l4) {
-                        et5.setBackgroundColor(getResources().getColor(R.color.yellow)); // sets color to yellow if so
+                        et5.setBackgroundColor(getResources().getColor(R.color.yellow));
                     }
                     // checks if letter is equal to letter in word, changes color to green
                     if (editText1 == l1) {
